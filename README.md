@@ -111,7 +111,7 @@ Compile and run using the following command
 make run
 ```
 ## License
-<a href="https://opensource.org/licenses/GPL-3.0" target="_blank"><img alt="GPL-3.0 License" align="left" src="https://img.shields.io/github/license/sdi12100180/8-Puzzle-Game-GUI?style=for-the-badge"></a></br>
+<a href="https://opensource.org/licenses/GPL-3.0" target="_blank"><img alt="GPL-3.0 License" align="left" src="https://img.shields.io/github/license/sdi2100180/8-Puzzle-Game-GUI?style=for-the-badge"></a></br>
 
 libraries:
 + [raylib](https://github.com/raysan5/raylib/blob/be7f717a24e72e0bc84389491a063de65c106048/LICENSE), zlib license
