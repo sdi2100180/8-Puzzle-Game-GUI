@@ -1,4 +1,4 @@
-<h1 align="center">🕹️ The 8-Puzzle Game!</h1> 
+<h1 align="center">The 8-Puzzle Game!</h1> 
 
 <h3 align="center">Click <a href="https://giorgos-sofronas.itch.io/8-puzzle-game" target="_blank">here</a> to play the game online at itch.io</h3>
 
