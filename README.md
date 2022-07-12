@@ -2,17 +2,14 @@
 
 <h3 align="center">Click <a href="https://giorgos-sofronas.itch.io/8-puzzle-game" target="_blank">here</a> to play the game online at itch.io</h3>
 
-<image src="https://repository-images.githubusercontent.com/479162603/40499170-5c6a-4d00-a928-88784ebc4d3e" align=right width=450>
-
-#### [8-Puzzle Game](https://en.wikipedia.org/wiki/15_puzzle) implemented in C, using [raylib](https://www.raylib.com/).
-
-Given an initial 3x3 puzzle, the aim is to reach a specific goal-puzzle in the minimum number of moves. The user is provided with two options: either try to solve the puzzle on their own or let the computer solve it (A.I.) using [A* search](https://en.wikipedia.org/wiki/A*_search_algorithm#:~:text=*%2Dlike%20algorithm.-,Description,shortest%20time%2C%20etc.) and a Manhantann distance heuristic.
+>The classic [8-Puzzle Game](https://en.wikipedia.org/wiki/15_puzzle) implemented in C, with GUI using [raylib](https://www.raylib.com/) library.
+Given an initial 3x3 puzzle, the aim is to reach a specific goal-puzzle in the minimum number of moves. The user is provided with two options: (1) either try to solve the puzzle on their own or (2) let the computer solve it (A.I.) using [A* search](https://en.wikipedia.org/wiki/A*_search_algorithm#:~:text=*%2Dlike%20algorithm.-,Description,shortest%20time%2C%20etc.) and a [Manhantann distance](https://en.wikipedia.org/wiki/Taxicab_geometry) heuristic.
 
 ## How To Play
 - Select a mode (using the mouse): either solve the puzzle yourself, or let the computer do it in the minumum number of moves.
 - Give initial puzzle. Press number-keys 1-8 for the corresponding numbers and the SPACE bar for the blank tile. The puzzle is filled row-to-row from left to right.
 - If you select the manual mode, using the arrow keys, you should try to solve the puzzle, reaching the goal state showed on the screen. *EXAMPLE: Pressing the UP arrow key, will move the tile below the blank one, upwards.*
-- If you select the A.I. mode, press ENTER to generate the next move.
+- If you select the A.I. mode, press ENTER to generate the next (optimal) move.
 
 ## Sample Initial Puzzles
 <table>
@@ -106,7 +103,7 @@ Given an initial 3x3 puzzle, the aim is to reach a specific goal-puzzle in the m
  
  *Note:* executable file for Linux is provided.
 <br>
-Compile and run using the following command
+Compile and run using the following command (Makefile):
 ```
 make run
 ```
