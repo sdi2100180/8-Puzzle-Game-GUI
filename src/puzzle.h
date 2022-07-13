@@ -5,14 +5,15 @@
 
 #include <stdbool.h>
 
-#define N 3 // board size is 3X3
+// board size is 3X3
+#define N 3 
 
-#define NULLkey -1 // NULLkey
+#define NULLkey -1 
 
 // pointer to the priority queue struct
 typedef struct priority_queue *PriorityQueue;
 
-// definitions of possible actions
+// possible actions/moves
 typedef enum{
     UP, RIGHT, DOWN, LEFT
 }Movement;
@@ -29,7 +30,7 @@ bool is_state_same(state *, state *);
 // allocates memory for a state
 void initialize_state(state *);
 
-// creates a new child-state based on move gievn, if possible
+// creates a new child-state based on move given, if possible
 state *new_move(state *, Movement);
 
 // checks if puzzle is solvable

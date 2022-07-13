@@ -14,13 +14,13 @@ struct state_node{
     StateNode *child[4]; // array of pointers to child-states
 };
 
-// simple linked list used to free memory
+// simple linked list used to free memory of StateNodes at the end of AI mode solution
 typedef struct list_{
     StateNode *item;
     struct list_ *next;
 }List;
 
-extern Mode MODE;
+extern Mode MODE; // current window mode
 
 #define ABS(A, B) ((A>B) ? A-B : B-A) // absolute value of A-B
 
@@ -33,9 +33,7 @@ static int h(state *k)
     int misplaced_tiles = 0; // number of misplaced tiles
     for (int i = 0; i < N; i++){
         for (int j = 0; j < N; j++){
-            if (k->s[i][j] == 0){
-                continue;
-            }
+            if (k->s[i][j] == 0) continue; // blank tile
             // calculate coordinates of k->s[i][j] in the goal state
             int x_goal = k->s[i][j]/N;
             int y_goal = k->s[i][j]%N;
@@ -44,15 +42,11 @@ static int h(state *k)
             int y_value = j;
             // add to the sum of manhanttan distances
             manh += ABS(x_goal, x_value) + ABS(y_goal, y_value);
-            if (k->s[i][j] != goal_value){
-                misplaced_tiles++;
-            }
+            if (k->s[i][j] != goal_value) misplaced_tiles++;
             goal_value++;
         }
     }
-    if (misplaced_tiles == 0){
-        return 0; // state k is the goal one
-    }
+    if (!misplaced_tiles) return 0; // state k is the goal one
     return manh;
 }
 
@@ -61,9 +55,7 @@ bool is_state_same(state *one, state *two)
 {
     for (int i = 0; i < N; i++){
         for (int j = 0; j < N; j++){
-            if (one->s[i][j] != two->s[i][j]){
-                return false;
-            }
+            if (one->s[i][j] != two->s[i][j]) return false;
         }
     }
     return true;
@@ -100,7 +92,7 @@ static StateNode *initialize_state_node(StateNode *parent, state *k, int cost)
     new->Parent = parent; // connect new state with the parent one
 
     for (int i = 0; i < N; i++){
-        new->child[i] = NULL; // initialize child-states with NULL
+        new->child[i] = NULL; // initialize children states with NULL
     }
     return new;
 }
@@ -166,7 +158,7 @@ state *new_move(state *current, Movement newMove)
     return NULL;
 }
 
-// expands the state
+// expands the parent state
 static void expand_state(StateNode *parent, PriorityQueue pq)
 {
     StateNode *child = NULL; // new child
@@ -223,9 +215,7 @@ bool is_puzzle_solvable(state *k)
     for (int i = 0; i < 9 - 1; i++){
         for (int j = i+1; j < 9; j++){
             // Value 0 is used for empty space
-            if (temp[j] && temp[i] &&  temp[i] > temp[j]){
-                inv_count++;
-            }
+            if (temp[j] && temp[i] && temp[i] > temp[j]) inv_count++;
         }
     }
     free(temp);
@@ -252,10 +242,10 @@ int compare_puzzles(Pointer puzzle1, Pointer puzzle2)
     return (f1 - f2);
 }
 
-// solve given puzzle using A* algorithm; returns the optimal path
+// solves given puzzle using A* algorithm; returns the optimal path
 int *puzzle_solve(state *initial, state *goal, int *goal_moves)
 {
-    // used to calculate g()
+    // used to calculate g
     int cost = 0;
 
     // initialize the priority queue
@@ -285,9 +275,8 @@ int *puzzle_solve(state *initial, state *goal, int *goal_moves)
         assert(list->next);
         list = list->next;
         // if current is goal state
-        if (is_state_same(current->State, goal)){ 
-            break;
-        }
+        if (is_state_same(current->State, goal)) break;
+        // increase depth
         cost++;
         // current state isn't the goal one
         // expand current state and insert child-states in PQ
@@ -298,7 +287,7 @@ int *puzzle_solve(state *initial, state *goal, int *goal_moves)
     if (cost == 0){
         // initial state is the goal one
         return NULL;
-    } else {
+    }else{
         int *path = malloc((cost+1) * sizeof(int));
         assert(path);
         int i = 0;
@@ -318,6 +307,7 @@ int *puzzle_solve(state *initial, state *goal, int *goal_moves)
             free(head);
             head = tmp;
         }
+        // return the created path
         return path;
     }
 }

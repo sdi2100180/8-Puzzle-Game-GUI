@@ -7,13 +7,6 @@
 #include "PriorityQueue.h"
 #include "interface.h"
 
-// window size
-#define SCREEN_WIDTH 800
-#define SCREEN_HEIGHT 450
-
-// puzzle tile size
-#define IMAGE_SIZE 133
-
 // current window mode
 Mode MODE;
 
@@ -206,9 +199,7 @@ static bool check_mouse_pressed(int x1, int x2, int y1, int y2)
     int mouse_y = GetMouseY();
     // check if mouse clicked when there
     if (mouse_x >= x1 && mouse_x <= x2 && mouse_y >= y1 && mouse_y <= y2){
-        if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)){
-            return true;
-        }
+        if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) return true;
     }
     return false;
 }
@@ -272,9 +263,7 @@ static int check_key_pressed(state **puzzle)
         if (is_move_legal(*puzzle, move)){
             *puzzle = new_move(*puzzle, move); 
             return 1;
-        }else{
-            return -1; // doing this to play audio "error"
-        }
+        }else return -1; // doing this to play audio "error"
     }
     return 0;
 }
@@ -334,51 +323,51 @@ void start_gameplay(state *initial, state *goal)
     // initialize audio
     InitAudioDevice();
     // load sounds
-    Sound tile_move = LoadSound("./sounds/tile_move.wav");
-    Sound click = LoadSound("./sounds/click.wav");
-    Sound error = LoadSound("./sounds/error.wav");
-    Sound touch = LoadSound("./sounds/touch.wav");
+    Sound tile_move = LoadSound("./assets/sounds/tile_move.wav");
+    Sound click = LoadSound("./assets/sounds/click.wav");
+    Sound error = LoadSound("./assets/sounds/error.wav");
+    Sound touch = LoadSound("./assets/sounds/touch.wav");
 
     // load images
     // make an array with the textures
     Texture2D *textures = malloc(10 * sizeof(Texture2D));
-    Image image = LoadImage("./numbers/0.png");   
+    Image image = LoadImage("./assets/images/0.png");   
     ImageResize(&image, IMAGE_SIZE, IMAGE_SIZE);  
     textures[0] = LoadTextureFromImage(image); 
     UnloadImage(image);
-    image = LoadImage("./numbers/1.png");     
+    image = LoadImage("./assets/images/1.png");     
     ImageResize(&image, IMAGE_SIZE, IMAGE_SIZE);
     textures[1] = LoadTextureFromImage(image); 
     UnloadImage(image);
-    image = LoadImage("./numbers/2.png");     
+    image = LoadImage("./assets/images/2.png");     
     ImageResize(&image, IMAGE_SIZE, IMAGE_SIZE);
     textures[2] = LoadTextureFromImage(image); 
     UnloadImage(image);
-    image = LoadImage("./numbers/3.png");     
+    image = LoadImage("./assets/images/3.png");     
     ImageResize(&image, IMAGE_SIZE, IMAGE_SIZE);
     textures[3] = LoadTextureFromImage(image);
     UnloadImage(image);
-    image = LoadImage("./numbers/4.png");     
+    image = LoadImage("./assets/images/4.png");     
     ImageResize(&image, IMAGE_SIZE, IMAGE_SIZE);
     textures[4] = LoadTextureFromImage(image);
     UnloadImage(image);
-    image = LoadImage("./numbers/5.png");     
+    image = LoadImage("./assets/images/5.png");     
     ImageResize(&image, IMAGE_SIZE, IMAGE_SIZE);
     textures[5] = LoadTextureFromImage(image);
     UnloadImage(image);
-    image = LoadImage("./numbers/6.png");     
+    image = LoadImage("./assets/images/6.png");     
     ImageResize(&image, IMAGE_SIZE, IMAGE_SIZE);
     textures[6] = LoadTextureFromImage(image); 
     UnloadImage(image);
-    image = LoadImage("./numbers/7.png");     
+    image = LoadImage("./assets/images/7.png");     
     ImageResize(&image, IMAGE_SIZE, IMAGE_SIZE);
     textures[7] = LoadTextureFromImage(image); 
     UnloadImage(image);
-    image = LoadImage("./numbers/8.png");     
+    image = LoadImage("./assets/images/8.png");     
     ImageResize(&image, IMAGE_SIZE, IMAGE_SIZE);
     textures[8] = LoadTextureFromImage(image);
     UnloadImage(image);
-    image = LoadImage("./numbers/goal-puzzle-state.png");     
+    image = LoadImage("./assets/images/goal-puzzle-state.png");     
     ImageResize(&image, IMAGE_SIZE/2+50, IMAGE_SIZE/2+50);
     textures[9] = LoadTextureFromImage(image);
     UnloadImage(image);
@@ -517,7 +506,7 @@ void start_gameplay(state *initial, state *goal)
     // free used memory
     if (MODE == AI && path != NULL) free(path);
     // unload textures
-    for (int i = 0; i < 9; i++){
+    for (int i = 0; i < 10; i++){
         UnloadTexture(textures[i]);
     }
     free(textures);

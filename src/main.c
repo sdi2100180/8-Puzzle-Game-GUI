@@ -3,14 +3,14 @@
 
 int main(void)
 {
-    // initialize the initial and the goal state 
+    // initialize the initial and the goal puzzles 
     state goal; 
     goal.Move = -1;
     initialize_state(&goal);
     state initial;
     initialize_state(&initial);
     initial.Move = -1;
-    // fill initial with NULLkey and goal state appropriately
+    // fill initial puzzle with NULLkey and goal puzzle appropriately
     int c = 0;
     for (int i = 0; i < N; i++){
         for (int j = 0; j < N; j++){

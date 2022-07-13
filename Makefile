@@ -3,7 +3,7 @@ LIB = ./lib
 INCLUDE = ./include
 SRC = ./src
 
-# your operating system (win or linux)
+# your Operating System (win or linux)
 OS = win
 
 # compiler
@@ -19,7 +19,7 @@ OBJS = $(SRC)/PriorityQueue.o $(SRC)/puzzle.o $(SRC)/interface.o $(SRC)/main.o
 # executable file
 EXEC = 8PuzzleGame
 
-# raylib library
+# raylib library used based on OS
 LIB_RAYLIB = libraylib_linux.a
 
 # determine OS
