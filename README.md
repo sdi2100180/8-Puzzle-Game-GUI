@@ -100,8 +100,8 @@ Given an initial 3x3 puzzle, the aim is to reach a specific goal-puzzle in the m
     - the main.c file containing the main function
     
  ## Compilation & Use for Windows and Linux
- ### IMPORTANT NOTE: Make sure `make` is installed.**
-**Install the program by downloading and compiling the source code. Navigate to the project's directory.<br>Put your Operating System in the OS field of the Makefile (linux or win *-- example: `OS = win` --*).** By default, OS = linux.
+ #### IMPORTANT NOTE: Make sure `make` is installed.
+Install the program by downloading and compiling the source code. Navigate to the project's directory.<br>Put your Operating System in the OS field of the Makefile (linux or win *-- example: `OS = win` --*). By default, OS = linux.
 <br><br>
 On Windows, compile and run using the following commands:
 ```
@@ -112,7 +112,7 @@ On Linux, compile and run using the following commands:
 ```
 make run
 ```
-OR
+or
 ```
 make
 ./8PuzzleGame
