@@ -77,7 +77,7 @@ Given an initial 3x3 puzzle, the aim is to reach a specific goal-puzzle in the m
   </tr>
 </table>
 
-## Project Structure 
+## About the Source Code
 
 - `include`
 
@@ -94,14 +94,14 @@ Given an initial 3x3 puzzle, the aim is to reach a specific goal-puzzle in the m
 - `src`
 
   **Contains the source code of the game. To be more specific:**
-    - a generic Priority Queue ADT implementation (from the [Abstract-Data-Types-in-C](https://github.com/sdi2100180/Abstract-Data-Types-in-C) project)
+    - a Priority Queue ADT implementation (from the [Abstract-Data-Types-in-C](https://github.com/sdi2100180/Abstract-Data-Types-in-C) project)
     - the puzzle.h and puzzle.c files containing the A.I. solver
     - the inteface.h and inteface.c files containing the GUI of the game with the use of raylib
     - the main.c file containing the main function
     
- ## Compilation and Use
-**Install the program by compiling the source code. Make sure `make` is installed. <br>Put your Operating System in the OS field of the Makefile (linux or win(for Windows) or mac(for macOS) *example: OS = win*).** By default, the OS field is linux.
-<br>
+ ## Compilation & Use for: Windows, Linux and macOS
+**Install the program by compiling the source code. Make sure `make` is installed. <br>Put your Operating System in the OS field of the Makefile (linux or win or mac *-- example: `OS = win` --*).** By default, OS = linux.
+<br><br>
 Compile and run using the following command (Makefile):
 ```
 make run
