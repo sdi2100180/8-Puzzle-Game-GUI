@@ -4,7 +4,7 @@ INCLUDE = ./include
 SRC = ./src
 
 # default OS is Linux
-OS = linux
+OS = win
 
 # compiler
 CC = gcc

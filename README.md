@@ -85,7 +85,7 @@ Given an initial 3x3 puzzle, the aim is to reach a specific goal-puzzle in the m
   
 - `lib`
   
-  Contains the `libraylib_<OS>.a` libraries, used to create the corresponding OS executable file.
+  Contains the `libraylib_<OS>.a` libraries, used to create the corresponding OS executable file (Windows and Linux).
   
 - `numbers` & `sounds`
   
@@ -99,13 +99,25 @@ Given an initial 3x3 puzzle, the aim is to reach a specific goal-puzzle in the m
     - the inteface.h and inteface.c files containing the GUI of the game with the use of raylib
     - the main.c file containing the main function
     
- ## Compilation & Use for: Windows, Linux and macOS
-**Install the program by compiling the source code. Make sure `make` is installed. <br>Put your Operating System in the OS field of the Makefile (linux or win or mac *-- example: `OS = win` --*).** By default, OS = linux.
+ ## Compilation & Use for Windows and Linux
+ ### IMPORTANT NOTE: Make sure `make` is installed.**
+**Install the program by downloading and compiling the source code. Navigate to the project's directory.<br>Put your Operating System in the OS field of the Makefile (linux or win *-- example: `OS = win` --*).** By default, OS = linux.
 <br><br>
-Compile and run using the following command (Makefile):
+On Windows, compile and run using the following commands:
+```
+make
+./8PuzzleGame.exe
+```
+On Linux, compile and run using the following commands:
 ```
 make run
 ```
+OR
+```
+make
+./8PuzzleGame
+```
+
 ## License
 <a href="https://opensource.org/licenses/GPL-3.0" target="_blank"><img alt="GPL-3.0 License" align="left" src="https://img.shields.io/github/license/sdi2100180/8-Puzzle-Game-GUI?style=for-the-badge"></a></br>
 
