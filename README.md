@@ -99,9 +99,8 @@ Given an initial 3x3 puzzle, the aim is to reach a specific goal-puzzle in the m
     - the inteface.h and inteface.c files containing the GUI of the game with the use of raylib
     - the main.c file containing the main function
     
- ## Compilation for Linux
- 
- *Note:* executable file for Linux is provided.
+ ## Compilation and Use
+**Install the program by compiling the source code. Make sure `make` is installed. <br>Put your Operating System in the OS field of the Makefile (linux or win(for Windows) or mac(for macOS) *example: OS = win*).** By default, the OS field is linux.
 <br>
 Compile and run using the following command (Makefile):
 ```
