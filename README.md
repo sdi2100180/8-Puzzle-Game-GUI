@@ -77,7 +77,7 @@ Given an initial 3x3 puzzle, the aim is to reach a specific goal-puzzle in the m
   </tr>
 </table>
 
-## About the Source Code
+## Project Structure
 
 - `include`
 
@@ -85,7 +85,7 @@ Given an initial 3x3 puzzle, the aim is to reach a specific goal-puzzle in the m
   
 - `lib`
   
-  Contains the `libraylib_linux.a` library, used to create the Linux executable file.
+  Contains the `libraylib_<OS>.a` libraries, used to create the corresponding OS executable file.
   
 - `numbers` & `sounds`
   
