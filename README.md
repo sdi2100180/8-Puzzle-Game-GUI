@@ -87,9 +87,9 @@ Given an initial 3x3 puzzle, the aim is to reach a specific goal-puzzle in the m
   
   Contains the `libraylib_<OS>.a` libraries, used to create the corresponding OS executable file (Windows and Linux).
   
-- `numbers` & `sounds`
+- `assets`
   
-  Contain the images and sounds used in the game.
+  Contains the *images* and *sounds* used in the game.
   
 - `src`
 
